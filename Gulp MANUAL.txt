@@ -1,0 +1,9 @@
+Установить node.js
+В папке с проектом ввести in command line: 
+npm i
+npm i -g gulp - installation globally
+npm i --save-dev - installation locally (so it could be reused in some other projects)
+npm i browser-sync --save-dev (for nodes of bs installation)
+npm i gulp-sass --save-dev (for nodes of sass-compiler installation)
+npm i gulp-util + npm i vinyl-ftp (for instant downloading files on host-server, необязательно)
+npm i --save-dev gulp-autoprefixer

@@ -1,0 +1,33 @@
+1. git init
+2. echo >> README.md
+3. git config --local user.name "Nik"
+4. git config --local user.email "N_I_K_O_93@Ukr.net"
+5. git add -A (или git .) (задаем гиту следить за файлами проекта)
+   можно вместо -А поставить *html, к прим, чтобы следить за хтмл-файлами
+6. git commit -a -m "Our first commit" (делаем первый коммит)
+7. git remote add origin https://github.com/niko777777/course-React-1.0-Ivan_Petrichenko.git
+8. git push -u origin master
+
+Для сохранения измененных файлов в гите:
+git add -A 
+git commit -a -m (опционально: -m "Our first commit")
+
+после Для заливки на гитхаб:
+git push origin
+git push -u origin master
+
+additionally:
+touch .gitignore - to create .gitignore
+touch = create file (applicable for README.md too)
+
+To change the branch:
+1) git branch login (to create branch with name "login")
+2) checkout login
+
+git merge 
+о если вы хотите удалить файл только из репозитория Git и не удалять его из файловой системы, используйте:
+git rm --cached file1.txt
+git commit -m "remove file1.txt"
+
+И для изменения настроек удаленного репо
+git push origin branch_name  
