@@ -1,0 +1,112 @@
+
+.menu-link
+{
+    z-index: 9;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .4);
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+/* Создание черточек внутри меню */
+.menu-link span, .menu-link span::before, .menu-link span::after {
+        display: block;
+        height: 2px;
+        width: 18px;
+        position: absolute;
+     /*центри-е по гориз-ли  сначала left: 50%, а потом соотв-й марджин отрицательный 
+        на половину его длинны в рх */
+        left: 50%;
+        margin-left: -9px;
+             /*центри-е по вертик-ли  сначала top: 50%, а потом соотв-й марджин отрицательный 
+        на половину его длинны в рх */
+        top: 50%;
+        margin-top: -1px;
+        background-color: #333;
+}
+/* рисуем средн-ю полоску */
+
+.menu-link span::before {
+    /* Добавляем транзишн для более плавного перехода rotate */
+    transition: all 0.2s;
+    content: "";
+    margin-top: -6px;
+}
+/* рисуем верх-ю полоску */
+
+.menu-link span::after {
+     /* Добавляем транзишн для более плавного перехода rotate */
+    transition: all 0.2s;
+    content: "";
+    margin-top: 4px;
+}
+/* рисуем нижнюю полоску */
+
+/* убираем среднюю черную полоску, чтобі не было сдвига элементов */
+.menu-link_active span{
+    background: transparent;
+}
+.menu-link_active span::before{
+    transform: rotate(135deg);
+    margin-top: 0;
+}
+.menu-link_active span::after{
+    transform: rotate(-135deg);
+    margin-top: 0;
+}
+
+.menu {
+    opacity: .9;
+    background-color:purple;
+    position: fixed;
+    /* Делаем меню на ширину и высоту окна */
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    /* Изначально скрываем меню */
+    left: -100vw;
+} 
+.menu ul {
+    list-style: none;
+    /* сброс паддингов по умолчанию */
+    padding: 0;
+    text-align: center;
+}
+.menu li {
+    /* делаем li на всю ширину экрана */
+    width: 100vw;
+}
+.menu ul a {
+    display: block;
+    width: 100%;
+    line-height: 4;
+    font-weight: 100;
+    letter-spacing: 5px;
+    color: #fff;
+    transition: all 0.2s;
+}
+a {
+    text-decoration: none
+}
+.menu ul a:hover {
+    transition: all 0.2s;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, .4);
+}
+.menu_active {
+    /* Чтобы меню появилось */
+    left: 0;
+}
+section {
+    padding: 20px 100px;
+    height: 100vh;
+}

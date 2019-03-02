@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="css/fonts.css">
+</head>
+
+<body>
+   
+    <section class="main">
+        <ul class="tabs">
+            <li><a href="#tab1">Lorem</a></li>
+            <li><a href="#tab2">Ipsum</a></li>
+        </ul>
+        <div class="tab_container">
+            <div id="tab1" class="tab_content">
+                <p class="tab_content__text">Lorem ipsum dolor sit amet, consectetur</p>
+                <ul>
+                    <li>
+                        <span class="tab_content__item">Lorem ipsum dolor sit amet</span>
+                        <span class="tab_content__volume">1,1 мг</span>
+                    </li>
+                    <li>
+                        <span class="tab_content__item">Lorem ipsum dolor sit amet</span>
+                        <span class="tab_content__volume">4,4 мг</span>
+                    </li>
+                    <li>
+                        <span class="tab_content__item">Lorem ipsum dolor sit amet</span>
+                        <span class="tab_content__volume">1,1 мг</span>
+                    </li>
+                    <li>
+                        <span class="tab_content__item">Lorem ipsum dolor sit amet</span>
+                        <span class="tab_content__volume">1,1 мг</span>
+                    </li>
+                    <li>
+                        <span class="tab_content__item">Lorem ipsum dolor sit amet</span>
+                        <span class="tab_content__volume">2,2 мг</span>
+                    </li>
+                    <li>
+                        <span class="tab_content__item">Lorem ipsum dolor sit amet</span>
+                        <span class="tab_content__volume">1,1 мг</span>
+                    </li>
+                </ul>
+                <p class="tab_content__text">Lorem ipsum dolor sit amet,consectetur</p>
+            </div>
+            <div id="tab2" class="tab_content">
+                <h2 class="tab_content__title">Lorem ipsum</h2>
+                <p class="tab_content__descr">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat</p>
+                <h2 class="tab_content__title">Lorem ipsum</h2>
+                <p class="tab_content__descr">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat</p>
+            </div>
+        </div>
+    </section>
+    <!-- /.tabs -->
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            /*скрываем содержаимое всех таб */
+            $('.tab_content').hide();
+            /*показываем содержаимое 1-го таба */
+            $('.tab_content:first').show();
+            /* добавляем класс со стилями для активного таба */
+            $('.tabs li:first').addClass('active');
+
+            $('.tabs li').click(function (event) {
+                /*убираем дефолтный скролл при клике на таб */
+                event.preventDefault();
+                $('.tabs li').removeClass('active');
+                /* добавляем класс актив тому табу, по которму кликнули */
+                $(this).addClass('active');
+                /*прячем содержимое табов */
+                $('.tab_content').hide();
+                //Find the rel attribute value to identify the active tab + content
+                var selectTab = $(this).find('a').attr("href");
+                $(selectTab).fadeIn();
+            });
+        });
+    </script>
+</body>
+
+</html>
