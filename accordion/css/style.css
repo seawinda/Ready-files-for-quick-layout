@@ -1,0 +1,31 @@
+body {
+  background:#464646;
+}
+
+.wrapper {
+  margin:60px auto;
+  width:80%;
+  max-width:500px;
+}
+
+h1 {
+  background: #FF6766;
+  border-radius:5px 5px 0 0;
+  margin:10px 0 0 0;
+  color:#FFFFF7;
+  font-size:20px;
+  padding:5px;
+  text-align:center;
+ }
+
+h1:hover {
+  cursor:pointer;
+  background:#FF7877;
+}
+
+article {
+  background:#FFFFF7;
+  border-radius:0 0 5px 5px;
+  padding: 5px;
+  color: #60646D;
+}
