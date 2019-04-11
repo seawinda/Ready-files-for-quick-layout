@@ -10,6 +10,154 @@
         cursor: default
         transition: none
 
-=mobile-section-paddings
-    padding-top: 20px
-    padding-bottom: 20px
+=mobile-section-paddings($padding-top, $padding-bottom)
+    padding-top: $padding-top
+    padding-bottom: $padding-bottom
+
+=wrapper-desktop
+    width: 100%
+    padding-left: 15px
+    padding-right: 15px
+    margin: 0 auto
+    
+=flex-positioner($flex-direction, $justify-content, $align-items)
+    display: flex
+    flex-direction: $flex-direction
+    justify-content: $justify-content
+    align-items: $align-items
+
+=pseudo-after-and-before ($width, $height, $background)
+    position: absolute
+    content: ''
+    display: block
+    width: $width
+    height: $height
+    background: $background
+
+=centerer($horizontal: true, $vertical: true)
+    position: absolute
+    @if ($horizontal and $vertical)
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+    @else if ($horizontal)
+        left: 50%
+        transform: translate(-50%, 0)
+    @else if ($vertical)
+        top: 50%
+        transform: translate(0, -50%)
+        
+=body-settings ($font-family, $font-size, $font-weight, $background)
+    body
+        padding: 0
+        margin: 0
+        font-family: $font-family, sans-serif
+        font-size: $font-size
+        font-weight: $font-weight
+        color: $color
+        background: $background
+
+=box-sizing
+    *, *::before, *::after
+        box-sizing: border-box
+
+=absolute-position ($top, $right, $bottom, $left) 
+    position: absolute
+    top: $top
+    right: $right
+    bottom: $bottom
+    left: $left
+
+=relative-position ($top, $right, $bottom, $left) 
+    position: relative
+    top: $top
+    right: $right
+    bottom: $bottom
+    left: $left
+
+=font-and-margin-styling ($font-size, $font-weight, $line-height, $margin-bottom)
+    font-size: $font-size
+    font-weight: $font-weight
+    line-height: $line-height
+    margin-bottom: $margin-bottom
+
+=sections-main-settings ($padding-top, $padding-bottom, $color)
+    padding-top: $padding-top
+    padding-bottom: $padding-bottom
+    color: $color
+    
+=background-pseudo-before ($background)
+	&::before
+		content: ''
+		display: block
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+        opacity: $opacity
+		background-color: $background
+		z-index: -1
+
+//Если изоб-е находится в поддиректории, обернуть в "" и указать перед $name название нужной папки
+// к прим +background-image-coverer-png("questions/background")
+=background-image-coverer-png ($bgc, $name)
+    $url: "../img/#{$name}.png"
+    background: $bgc url($url) center no-repeat
+    background-size: cover
+
+=background-image-coverer-jpg ($bgc, $name)
+    $url: "../img/#{$name}.jpg"
+    background: $bgc url($url) center no-repeat
+    background-size: cover
+
+//$name - название файла в дир-ии со шрифтами без расширения
+=font-face($name, $file)
+    @font-face
+        font-family: "#{$name}"
+        src: url("../fonts/#{$file}.eot");
+        src: url("../fonts/#{$file}.eot?#iefix") format("embedded-opentype"),
+        url("../fonts/#{$file}.woff") format("woff"),
+        url("../fonts/#{$file}.ttf") format("truetype"),
+        url("../fonts/#{$file}.svg?#webfont") format("svg")
+
+=center-block-and-text
+    margin: 0 auto
+    text-align: center
+    display: block
+
+=button-styling ($color, $background-color, $border, $border-radius)
+    +padding($top, $right, $bottom, $left)
+    font-size: $font-size
+    font-weight: $font-weight
+    color: $color
+    background-color: $background-color
+    border: $border
+    border-radius: $border-radius
+    +hover-lightening
+
+//Popup-window styles
+=overlay ($background)
+	display: none
+	top: 0
+	width: 100%
+	height: 100%
+	z-index: 3
+	background: $background
+    
+=popup ($top, $width)
+    width: $width
+    position: fixed
+    left: 50%
+    transform: translateX(-50%)
+    top: $top
+    
+=popup-close-button($color)
+    padding: 0 8px
+    border: none
+    background: transparent
+    cursor: pointer
+    color: $color
+    +absolute-position ($top, $right, $bottom, $left)
+    +font-and-margin-styling ($font-size, $font-weight, $line-height, $margin-bottom)
+//
